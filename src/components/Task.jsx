@@ -2,6 +2,7 @@ import { useContext, useState } from "react"
 import { TaskContext } from "./context/TaskContext"
 import TaskModel from "./TaskModal"
 import TaskDetailModel from "./TaskDetailModel"
+import { useDraggable } from "@dnd-kit/core"
 
 
 const Task =({task})=>{
@@ -9,9 +10,22 @@ const Task =({task})=>{
     const {deleteTask} = useContext(TaskContext)
     const [isEditable , setIsEditable] = useState(false)
     const [isDetialsOpen , setIsDetialsOpen] = useState(false)
+    const {attributes , listeners , setNodeRef ,transform} = useDraggable({
+        id:task.id
+    })
 
     return(
-        <div className="bg-white border rounded p-4 m-3 shadow" onClick={()=>setIsDetialsOpen(true)}>
+        <div 
+        className="bg-white border rounded p-4 m-3 shadow" 
+        onClick={()=>setIsDetialsOpen(true)} 
+        ref={setNodeRef} 
+        style={{
+        transform: transform
+            ? `translate3d(${transform.x}px, ${transform.y}px, 0)`
+            : undefined
+        }}
+        >
+            <div {...listeners} {...attributes} className="cursor-grab">⋮⋮</div>
             <h3 className="text-lg font-bold">{task.title}</h3>
             <p className="text-sm text-gray-600 mt-2">{task.description}</p>
             <p className="text-sm mt-3">Priority <span className="font-semibold">{task.priority}</span></p>

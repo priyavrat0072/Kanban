@@ -8,15 +8,25 @@ const TaskModel = ({task , onClose}) =>{
         const [title , setTitle] = useState(task.title)
         const [description , setDescription] = useState(task.description)
         const [priority , setPriority] = useState(task.priority) 
+        const [error , setError] = useState("")
 
-        const updatedTask = {
+
+
+        const handleUpdate =()=>{
+
+            if(!title.trim() || !description.trim()){
+                setError("Please fill all fields")
+                return
+            }
+            setError("")
+            const updatedTask = {
             id : task.id,
             title,
             description,
             priority,
             status: task.status
         }
-        const handleUpdate =(updatedTask)=>{
+
             updateTask(updatedTask)
             onClose()
         }
@@ -32,8 +42,14 @@ const TaskModel = ({task , onClose}) =>{
                         <option value="medium">medium</option>
                         <option value="high">high</option>
                     </select>
-                    <button onClick={()=>{handleUpdate(updatedTask)}}>Update</button>
+                    <button onClick={handleUpdate}>Update</button>
                     <button onClick={onClose}>Close</button>
+
+                {error && (
+                    <p className="text-red-500 text-sm mt-2">
+                        {error}
+                    </p>
+                )}
             </div>
         </div>
     )

@@ -1,10 +1,17 @@
-import { createContext , useState } from "react"
+import { createContext , useState , useEffect } from "react"
 
 export const TaskContext = createContext();
 
 const TaskContextProvider =({children})=>{
 
-    const [tasks , setTasks] = useState([])
+    const [tasks , setTasks] = useState(()=>{
+        const savedTask = localStorage.getItem("tasks")
+        return savedTask ? JSON.parse(savedTask) : []
+    })
+
+    useEffect(()=>{
+        localStorage.setItem("tasks",JSON.stringify(tasks))
+    },[tasks])
 
     const addTask = (newTask) =>{
         setTasks((prevTask)=>[...prevTask , newTask])

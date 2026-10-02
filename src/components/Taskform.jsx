@@ -6,10 +6,18 @@ const Taskform = () => {
     const [title , setTitle] = useState("")
     const [description , setDescription] = useState("")
     const [priority , setPriority] = useState("low") 
+    const [error , setError] = useState("")
 
     const {addTask} = useContext(TaskContext)
     
-    const handleTaskInput =()=>{
+    const handleTaskInput =(e)=>{
+        e.preventDefault()
+
+        if(!title.trim() || !description.trim()){
+            setError("Please fill all fields")
+            return
+        }
+        setError("")
         const newTask = {
             id : crypto.randomUUID(),
             title,
@@ -18,10 +26,13 @@ const Taskform = () => {
             status : "todo"
         }
         addTask(newTask)
+        setTitle("")
+        setDescription("")
+        setPriority("low")
     }
 
   return (
-    <div className="flex gap-10 bg-amber-200 justify-center p-2">
+    <form className="flex gap-10 bg-amber-200 justify-center p-2">
       <input
         type="text"
         value={title}
@@ -47,7 +58,14 @@ const Taskform = () => {
       <button type="button" className="border w-24" onClick={handleTaskInput}>
         Add Todo
       </button>
-    </div>
+      {
+        error && (
+            <p className="text-red-500 text-sm mt-2">
+                {error}
+            </p>
+        )
+      }
+    </form>
   );
 };
 export default Taskform;
