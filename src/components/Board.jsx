@@ -2,7 +2,7 @@ import { useContext } from "react"
 import Taskform from "./Taskform.jsx"
 import { TaskContext } from "./context/TaskContext.jsx"
 import { DndContext } from "@dnd-kit/core"
-import Column from "./column.jsx"
+import Column from './Column.jsx'
 
 
 const Board =()=>{
