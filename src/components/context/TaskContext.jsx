@@ -16,10 +16,16 @@ const TaskContextProvider =({children})=>{
         })
     }
 
+    const updateTask =(updatedTask)=>{
+        setTasks((prevTask) => {
+            return prevTask.map((task) => task.id == updatedTask.id ? updatedTask : task)
+        })
+    }
+
     // console.log(`task from taskform: ${JSON.stringify(tasks)}`)
 
     return(
-        <TaskContext.Provider value={{tasks , addTask , deleteTask}}>
+        <TaskContext.Provider value={{tasks , addTask , deleteTask , updateTask}}>
             {children}
         </TaskContext.Provider>
     )
