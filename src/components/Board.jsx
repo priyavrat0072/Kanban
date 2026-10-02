@@ -29,7 +29,7 @@ const Board =()=>{
         <div>
             <Taskform />
             <DndContext onDragEnd={handleDragEnd}>  
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-5 ">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 px-3 py-5 sm:px-5 ">
                 <Column 
                     title = "To Do"
                     status="todo"

@@ -16,7 +16,7 @@ const Task =({task})=>{
 
     return(
         <div 
-        className="bg-white border rounded p-4 m-3 shadow" 
+        className="bg-white border rounded-lg p-3 sm:p-4 m-2 sm:m-3 shadow max-w-full"
         onClick={()=>setIsDetialsOpen(true)} 
         ref={setNodeRef} 
         style={{
@@ -26,12 +26,12 @@ const Task =({task})=>{
         }}
         >
             <div {...listeners} {...attributes} className="cursor-grab">⋮⋮</div>
-            <h3 className="text-lg font-bold">{task.title}</h3>
-            <p className="text-sm text-gray-600 mt-2">{task.description}</p>
+            <h3 className="text-lg font-bold wrap-break-word">{task.title}</h3>
+            <p className="text-sm text-gray-600 mt-2 wrap-break-word">{task.description}</p>
             <p className="text-sm mt-3">Priority <span className="font-semibold">{task.priority}</span></p>
-            <div className="flex gap-2 mt-4">
-                <button className="border px-3 py-1" onClick={(e)=>{e.stopPropagation(), setIsEditable(true)}}>Edit</button>
-                <button className="border px-3 py-1" onClick={(e)=>{e.stopPropagation(),deleteTask(task.id)}}>Delete</button>
+            <div className="flex flex-wrap gap-2 mt-4">
+                <button className="border px-3 py-1.5 rounded" onClick={(e)=>{e.stopPropagation(), setIsEditable(true)}}>Edit</button>
+                <button className="border px-3 py-1.5 rounded" onClick={(e)=>{e.stopPropagation(),deleteTask(task.id)}}>Delete</button>
             </div>
             {
                 isEditable && (

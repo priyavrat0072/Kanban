@@ -32,8 +32,9 @@ const Taskform = () => {
     }
 
   return (
-    <form className="flex gap-10 bg-amber-200 justify-center p-2">
-      <input
+   <form className="bg-amber-200 p-3">
+    <div className="flex flex-col md:flex-row gap-3 md:gap-5 bg-amber-200 justify-center p-3">
+              <input
         type="text"
         value={title}
         onChange={(e)=>{setTitle(e.target.value)}}
@@ -50,14 +51,17 @@ const Taskform = () => {
       <select 
        value={priority}
         onChange={(e)=>{setPriority(e.target.value)}}
+        className="border w-full md:w-32 h-12 p-2"
        >
         <option value="low">low</option>
         <option value="medium">medium</option>
         <option value="high">high</option>
       </select>
-      <button type="button" className="border w-24" onClick={handleTaskInput}>
+      <button type="button" className="border w-full md:w-24 h-12" onClick={handleTaskInput}>
         Add Todo
       </button>
+
+    </div>
       {
         error && (
             <p className="text-red-500 text-sm mt-2">
