@@ -16,7 +16,7 @@ It allows users to create, manage, edit, delete, and move tasks between differen
   * To Do
   * In Progress
   * Done
-* Tasks are saved in `localStorage`
+* Tasks are saved in local storage
 * Responsive design for different screen sizes
 
 ## Tech Stack
@@ -28,51 +28,12 @@ It allows users to create, manage, edit, delete, and move tasks between differen
 * dnd-kit
 * localStorage
 
-## Project Structure
-
-```text
-src/
-├── components/
-│   ├── Board.jsx
-│   ├── Column.jsx
-│   ├── Task.jsx
-│   ├── Taskform.jsx
-│   ├── TaskModal.jsx
-│   ├── TaskDetailModel.jsx
-│   ├── Header.jsx
-│   └── context/
-│       └── TaskContext.jsx
-```
-
-## Getting Started
-
-### 1. Install dependencies
-
-```bash
-npm install
-```
-
-### 2. Start the development server
-
-```bash
-npm run dev
-```
-
-Open the local URL shown in the terminal.
-
-## Build for Production
-
-```bash
-npm run build
-```
-
 ## How It Works
 
 Tasks are managed using React Context API.
-The task data is stored in `localStorage`, so tasks remain available after refreshing the page.
+The task data is stored in localStorage, so tasks remain available after refreshing the page.
 
-Drag and drop is implemented using `dnd-kit`, allowing tasks to be moved between the three Kanban columns.
+Drag and drop is implemented using dnd-kit, allowing tasks to be moved between the three Kanban columns.
 
-## Author
+# Live
 
-Priyavrat Singh Chouhan
