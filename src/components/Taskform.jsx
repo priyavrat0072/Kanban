@@ -10,6 +10,7 @@ const Taskform = () => {
 
     const {addTask} = useContext(TaskContext)
     
+    /* handling task input and checking invalid inputs */
     const handleTaskInput =(e)=>{
         e.preventDefault()
 

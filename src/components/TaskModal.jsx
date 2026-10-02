@@ -11,7 +11,7 @@ const TaskModel = ({task , onClose}) =>{
         const [error , setError] = useState("")
 
 
-
+    /* Updating the task and checking for empty fields */
         const handleUpdate =()=>{
 
             if(!title.trim() || !description.trim()){

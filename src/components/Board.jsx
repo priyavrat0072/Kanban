@@ -9,6 +9,7 @@ const Board =()=>{
 
     const {tasks , updateTask} = useContext(TaskContext)
 
+    /* Handles drag functionality with updating the task status */
     const handleDragEnd = ({active , over}) =>{
         if(!over) return
 
