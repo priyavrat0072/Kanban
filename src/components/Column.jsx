@@ -10,13 +10,13 @@ const Column = ({ title, status, tasks }) => {
     return (
         <div
             ref={setNodeRef}
-            className="bg-gray-100 border rounded-xl h-96 p-2 sm:p-3 w-full min-w-0"
+            className="bg-gray-300  border-red-800 border-2 rounded-xl h-150 p-2 sm:p-3 w-full min-w-0"
         >
-            <h2 className="text-xl font-bold mb-3">
+            <h2 className="text-3xl font-bold mb-3 text-center underline">
                 {title}
             </h2>
 
-            <div className="h-80 overflow-y-auto">
+            <div className="h-130 overflow-y-auto">
                 {
                     tasks
                         .filter((task) => task.status === status)

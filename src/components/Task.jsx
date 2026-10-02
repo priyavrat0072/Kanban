@@ -16,7 +16,7 @@ const Task =({task})=>{
 
     return(
         <div 
-        className="bg-white border rounded-lg p-3 sm:p-4 m-2 sm:m-3 shadow max-w-full"
+        className="bg-white border rounded-lg p-3 sm:p-4 m-2 sm:m-3 shadow max-w-full relative"
         onClick={()=>setIsDetialsOpen(true)} 
         ref={setNodeRef} 
         style={{
@@ -25,13 +25,14 @@ const Task =({task})=>{
             : undefined
         }}
         >
-            <div {...listeners} {...attributes} className="cursor-grab">⋮⋮</div>
-            <h3 className="text-lg font-bold wrap-break-word">{task.title}</h3>
-            <p className="text-sm text-gray-600 mt-2 wrap-break-word">{task.description}</p>
-            <p className="text-sm mt-3">Priority <span className="font-semibold">{task.priority}</span></p>
+            <div {...listeners} {...attributes} className="cursor-grab absolute top-2 right-3 text-2xl font-bold">⋮⋮</div>
+            <h3 className="text-lg font-bold wrap-break-word underline"><span>Title : </span>{task.title}</h3>
+            <p className="font-medium m-0">Description :</p>
+            <p className="text-sm text-gray-600 mt-2 wrap-break-word h-14 overflow-y-auto">{task.description}</p>
+            <p className="text-sm mt-3">Priority : <span className="font-semibold">{task.priority}</span></p>
             <div className="flex flex-wrap gap-2 mt-4">
-                <button className="border px-3 py-1.5 rounded" onClick={(e)=>{e.stopPropagation(), setIsEditable(true)}}>Edit</button>
-                <button className="border px-3 py-1.5 rounded" onClick={(e)=>{e.stopPropagation(),deleteTask(task.id)}}>Delete</button>
+                <button className="px-3 py-1.5  border-2 rounded-xl border-orange-600 bg-orange-500 " onClick={(e)=>{e.stopPropagation(), setIsEditable(true)}}>Edit</button>
+                <button className="border-2 px-3 py-1.5 rounded-xl border-red-600 bg-red-500" onClick={(e)=>{e.stopPropagation(),deleteTask(task.id)}}>Delete</button>
             </div>
             {
                 isEditable && (

@@ -1,9 +1,8 @@
 import { useContext } from "react"
-import Task from "./Task"
-import Taskform from "./Taskform"
-import { TaskContext } from "./context/TaskContext"
+import Taskform from "./Taskform.jsx"
+import { TaskContext } from "./context/TaskContext.jsx"
 import { DndContext } from "@dnd-kit/core"
-import Column from "./column"
+import Column from "./column.jsx"
 
 
 const Board =()=>{

@@ -35,16 +35,21 @@ const TaskModel = ({task , onClose}) =>{
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
             <div className="bg-white p-4 sm:p-6 rounded-xl w-[90%] sm:w-96">
                     <h2 className="text-xl font-bold">Edit Task</h2>
-                    <input type="text" value={title} onChange={(e)=>setTitle(e.target.value)} className="border w-full h-10 p-2 mt-3"/>
-                    <input type="text" value={description} onChange={(e)=>setDescription(e.target.value)} className="border w-full h-10 p-2 mt-3" />
-                    <select value={priority} onChange={(e)=>setPriority(e.target.value)} className="border w-full h-10 p-2 mt-3">
+                    <input placeholder="Edit title..." type="text" value={title} onChange={(e)=>setTitle(e.target.value)} className="border-2 rounded-xl w-full h-10 p-2 mt-3"/>
+                    <textarea
+                        placeholder="Edit description..."
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        className="border-2 rounded-xl w-full h-40 p-2 mt-3 resize-none"
+                        />
+                    <select value={priority} onChange={(e)=>setPriority(e.target.value)} className="border-2 rounded-xl w-full h-10 p-2 mt-3">
                         <option value="low">low</option>
                         <option value="medium">medium</option>
                         <option value="high">high</option>
                     </select>
                     <div className="flex flex-col sm:flex-row gap-2 mt-4">
-                        <button onClick={handleUpdate} className="border px-4 py-2 rounded">Update</button>
-                        <button onClick={onClose} className="border px-4 py-2 rounded">Close</button>
+                        <button onClick={handleUpdate} className="border-2 bg-amber-500 rounded-xl border-amber-700 px-4 py-2">Update</button>
+                        <button onClick={onClose} className="border-2 bg-gray-300 rounded-xl border-gray-500 px-4 py-2">Close</button>
                     </div>
 
                 {error && (

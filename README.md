@@ -1,16 +1,78 @@
-# React + Vite
+# Kanban Board
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A simple and responsive Kanban Board application built with React and Tailwind CSS.
+It allows users to create, manage, edit, delete, and move tasks between different stages.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* Create new tasks
+* Add task title, description, and priority
+* Edit tasks
+* Delete tasks
+* View task details
+* Drag and drop tasks between columns
+* Three task stages:
 
-## React Compiler
+  * To Do
+  * In Progress
+  * Done
+* Tasks are saved in `localStorage`
+* Responsive design for different screen sizes
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the Oxlint configuration
+* React
+* Tailwind CSS
+* JavaScript
+* Context API
+* dnd-kit
+* localStorage
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Project Structure
+
+```text
+src/
+├── components/
+│   ├── Board.jsx
+│   ├── Column.jsx
+│   ├── Task.jsx
+│   ├── Taskform.jsx
+│   ├── TaskModal.jsx
+│   ├── TaskDetailModel.jsx
+│   ├── Header.jsx
+│   └── context/
+│       └── TaskContext.jsx
+```
+
+## Getting Started
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Start the development server
+
+```bash
+npm run dev
+```
+
+Open the local URL shown in the terminal.
+
+## Build for Production
+
+```bash
+npm run build
+```
+
+## How It Works
+
+Tasks are managed using React Context API.
+The task data is stored in `localStorage`, so tasks remain available after refreshing the page.
+
+Drag and drop is implemented using `dnd-kit`, allowing tasks to be moved between the three Kanban columns.
+
+## Author
+
+Priyavrat Singh Chouhan
