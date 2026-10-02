@@ -36,4 +36,4 @@ The task data is stored in localStorage, so tasks remain available after refresh
 Drag and drop is implemented using dnd-kit, allowing tasks to be moved between the three Kanban columns.
 
 # Live
-
+The website is deployed on netlify recipe-finder-10101 - https://kanban-board-10101.netlify.app/
