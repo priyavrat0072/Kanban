@@ -32,7 +32,7 @@ const TaskModel = ({task , onClose}) =>{
         }
 
     return(
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+        <div className="fixed inset-0 z-9999 bg-black/50 flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
             <div className="bg-white p-4 sm:p-6 rounded-xl w-[90%] sm:w-96">
                     <h2 className="text-xl font-bold">Edit Task</h2>
                     <input placeholder="Edit title..." type="text" value={title} onChange={(e)=>setTitle(e.target.value)} className="border-2 rounded-xl w-full h-10 p-2 mt-3"/>
